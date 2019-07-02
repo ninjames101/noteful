@@ -1,11 +1,34 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
+import Header from './Components/Header'
+import { Route } from 'react-router-dom'
+import FolderListPrimary from './Components/FolderListPrimary';
+import NotesSidebar from './Components/NotesSidebar';
+import NotesList from './Components/NotesList';
+import SingleNote from './Components/SingleNote';
+import Store from './Store'
 
-function App() {
-  return (
-    <div className="App">
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      store: Store
+    }
+  }
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <Route path="/jameseatingpizza" component={Header} />
+        <main>
+          <Route exact path="/" render={() => <FolderListPrimary folders={this.state.store.folders} />} />
+          <NotesSidebar />
+          <NotesList />
+          <SingleNote />
+        </main>
+      </div>
+    );
+  }
 }
 
 export default App;
