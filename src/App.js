@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './Components/Header'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import FolderListPrimary from './Components/FolderListPrimary';
 import NotesSidebar from './Components/NotesSidebar';
 import NotesList from './Components/NotesList';
@@ -21,8 +21,11 @@ class App extends Component {
         <Header />
         <Route path="/jameseatingpizza" component={Header} />
         <main>
+          <Switch>
           <Route exact path="/" render={() => <FolderListPrimary folders={this.state.store.folders} />} />
+          <Route path="/folder/:id" render={() => <FolderListPrimary folders={this.state.store.folders}  />} />
           <NotesSidebar />
+          </Switch>
           <NotesList />
           <SingleNote />
         </main>

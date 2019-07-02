@@ -66,3 +66,57 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+Components
+Main App - Set state in here.
+Header - Same accross. App title link to main route " / "
+Main Section
+    NotesList - Main and Folder Route
+    SingleNote - Note Route
+Note component
+Sidebar - prop of selected. if ID in selected prop matches, add a class to that folder
+    FolderListPrimary - Main and Folder Route
+    NotesSidebar - Note Route
+
+State
+In a Json and contains array of folders and array of notes
+
+Routes
+
+Main - " / "
+    -  Show all available notes in main section
+    - Note - Show name and modified date
+    - Sidebar: List of folders with none selected
+
+Dynamic Folder - " /folder/:folder-id "
+    folder-id matches id of one of the folders in state
+    Main section, only show notes in selected folder
+    Sidebar - All folders with selected folder highlighted. 
+
+Dynamic Note - " /note/:note-id "
+    Main section show display currently selected note name, modified date AND CONTENT.
+    Sidebar - Just show folder of currently selected note and a 'Back' button.
+
+
+Dummy data
+
+Use this dummy-store.js as a file in your project to populate the initial state.
+
+
+Hints
+
+Hints for the App component:
+
+In order to pass props into components for specific routes, you'll need to use the render prop on Route components in a similar way to when we added programmatic navigation to the bookmarks app. For example:
+<Route
+  path='/foo'
+  render={(routerProps) =>
+    <FooSidebar
+      aFoo={this.state.foos.find(foo => foo.id === routeProps.match.params.foodId)}
+    />
+  }
+/>
+The folder route:
+
+Instead of using Link components in the sidebar for each folder, you can use the NavLink component that will automatically add a className of "active" when appropriate.
+You'll need to filter for the notes that contain a matching folderId to the folder that's selected when deciding which notes to display.

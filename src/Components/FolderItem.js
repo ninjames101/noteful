@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const FolderItem = (props) => {
     return ( 
         <li id={props.id}>
-            <a href={'/folder/' + props.id}>{props.name}</a>
+            <Link to={`/folder/${props.id}`}>{props.name}</Link>
         </li>
      );
 }
