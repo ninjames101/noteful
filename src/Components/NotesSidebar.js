@@ -4,7 +4,7 @@ const NotesSidebar = (props) => {
     return ( 
         <nav>
             <button>Go Back</button>
-            <h3>Folder</h3>
+            <h3>{props.folder}</h3>
         </nav>
      );
 }

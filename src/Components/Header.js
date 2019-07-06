@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return ( 
         <header>
             <h1>
-                <a href="/">Trolling James</a>
+                <Link to="/">Trolling James</Link>
             </h1>
         </header>
      );

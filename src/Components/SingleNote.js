@@ -5,9 +5,9 @@ const SingleNote = (props) => {
     return ( 
         <section>
           <ul>
-            <NoteItem />
+            <NoteItem id={props.note.id} name={props.note.name} modified={props.note.modified}  />
           </ul>
-          <p>Note text stuff goes here blah blah bluh</p>
+          <p>{props.note.content}</p>
         </section>
      );
 }

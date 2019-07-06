@@ -1,10 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import './FolderItem.css'
 
 const FolderItem = (props) => {
+    
     return ( 
         <li id={props.id}>
-            <Link to={`/folder/${props.id}`}>{props.name}</Link>
+            <NavLink to={`/folder/${props.id}`}>{props.name}</NavLink>
         </li>
      );
 }

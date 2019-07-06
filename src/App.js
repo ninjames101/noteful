@@ -15,19 +15,35 @@ class App extends Component {
       store: Store
     }
   }
+  
+  findNote = (noteId) => {
+    return this.state.store.notes.find(note => note.id === noteId);
+  }
+
+  findNoteFolder = (noteId) => {
+      const folderId = this.findNote(noteId).folderId;
+      return this.state.store.folders.find(folder => folder.id === folderId);
+  }
+
+  findFolderNotes = (folderID) => {
+    return this.state.store.notes.filter(note => note.folderId === folderID);
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
-        <Route path="/jameseatingpizza" component={Header} />
         <main>
           <Switch>
-          <Route exact path="/" render={() => <FolderListPrimary folders={this.state.store.folders} />} />
-          <Route path="/folder/:id" render={() => <FolderListPrimary folders={this.state.store.folders}  />} />
-          <NotesSidebar />
+            <Route exact path="/" render={() => <FolderListPrimary folders={this.state.store.folders} />} />
+            <Route path="/folder/:folderid" render={() => <FolderListPrimary folders={this.state.store.folders} />} />
+            <Route path="/note/:noteid" render={(routerProps) => <NotesSidebar folder={this.findNoteFolder(routerProps.match.params.noteid).name} goBack={() => routerProps.history.goBack()}   />} />
           </Switch>
-          <NotesList />
-          <SingleNote />
+          <Switch>
+              <Route exact path="/" render={() => <NotesList notes={this.state.store.notes} />} />
+              <Route path="/folder/:folderid" render={(routerProps) => <NotesList notes={this.findFolderNotes(routerProps.match.params.folderid)}  />} />
+              <Route path="/note/:noteid" render={(routerProps) => <SingleNote note={this.findNote(routerProps.match.params.noteid)}   />} />
+          </Switch>
         </main>
       </div>
     );
