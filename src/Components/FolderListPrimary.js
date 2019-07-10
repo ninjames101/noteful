@@ -1,5 +1,6 @@
 import React from 'react';
 import FolderItem from './FolderItem';
+import {Link} from 'react-router-dom';
 
 const FolderListPrimary = (props) => {
   
@@ -11,7 +12,7 @@ const FolderListPrimary = (props) => {
           <ul>
             {folder}
           </ul>
-          <button>Add folder</button>
+          <button><Link to="/addfolder">Add folder</Link></button>
         </nav>
      );
 }

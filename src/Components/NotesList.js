@@ -1,5 +1,6 @@
-import React from 'react'
-import NoteItem from './NoteItem'
+import React from 'react';
+import NoteItem from './NoteItem';
+import { Link } from 'react-router-dom';
 
 const NotesList = (props) => {
 
@@ -12,7 +13,7 @@ const NotesList = (props) => {
           <ul>
             {notes}
           </ul>
-          <button>Add Note</button>
+          <button><Link to='/addnote'>Add Note</Link></button>
         </section>
      );
 }

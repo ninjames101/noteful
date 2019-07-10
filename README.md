@@ -120,3 +120,20 @@ The folder route:
 
 Instead of using Link components in the sidebar for each folder, you can use the NavLink component that will automatically add a className of "active" when appropriate.
 You'll need to filter for the notes that contain a matching folderId to the folder that's selected when deciding which notes to display.
+
+
+
+Component
+
+AddFolder
+Name of Folder
+Submitfolder name to POST /folder endpoint
+Handle errors
+Button to nav to invoke component
+
+AddNote
+Name of Note, Content, Folder for Note (List of existing folders) The folder should be selected from a list of existing folders.
+Submit to POST /notes endpoint
+Data Val: Note name not blank.
+Handle Errors
+Note List Page: Add button for invoke component
