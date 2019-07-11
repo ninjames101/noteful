@@ -16,5 +16,9 @@ const FolderListPrimary = (props) => {
         </nav>
      );
 }
+
+FolderListPrimary.defaultProps = {
+  folders: []
+}
  
 export default FolderListPrimary;

@@ -17,5 +17,9 @@ const NotesList = (props) => {
         </section>
      );
 }
+
+NotesList.defaultProps = {
+  notes: []
+}
  
 export default NotesList;

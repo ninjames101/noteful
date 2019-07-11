@@ -1,58 +1,25 @@
 import React from 'react';
+import { NotefulContext } from './NotefulContext'
 
-class AddNote extends React.Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            name: '',
-            content: '',
-            folderId: ''
-        }
-    }
+const AddNote = (props) => {
 
-    updateNote = (event) => {
-        const value = event.target.value;
-        const name = event.target.name;
-
-        this.setState({
-        [name]: value
-        });
-    }
-
-    createNote = (event) => {
-        event.preventDefault()
-        fetch('http://localhost:9090/notes/',{
-            method: 'POST',
-            body: JSON.stringify(this.state),
-            headers: {
-                'Content-Type': 'application/json',
-              }
-        }).then(response => response.json())
-        .then(response => console.log(JSON.stringify(response)))
-    }
-
-    
-    generateFolderOptions = () => {
-        return this.props.folders.map(folder => (<option key={folder.id} value={folder.id}>{folder.name}</option>))
-    }
-    
-
-    render() {
     return ( 
-        <form onSubmit={e => this.createNote(e)}>
+        <NotefulContext.Consumer>
+            {({createNote, newNoteName, updateNote, newNoteContent, newNoteFolderId, folders }) => (
+        <form onSubmit={e => createNote(e)}>
             <label htmlFor='newNoteName'>New Note Name</label>
-            <input type='text' id='newNoteName' value={this.state.name} name='name' onChange={event => this.updateNote(event)}  required/>
+            <input type='text' id='newNoteName' value={newNoteName} name='newNoteName' onChange={event => updateNote(event)}  required/>
             <label htmlFor='newNoteContent'>Content</label>
-            <textarea id='newNoteContent' name='content' value={this.state.content}  onChange={event => this.updateNote(event)}  ></textarea>
-            <label htmlFor='newNoteFolder'>Folder</label>
-            <select id="newNoteFolder" name="folderId" value={this.state.folderId} onChange={event => this.updateNote(event)} >
-                {this.generateFolderOptions()}
+            <textarea id='newNoteContent' name='newNoteContent' value={newNoteContent}  onChange={event => updateNote(event)}  ></textarea>
+            <label htmlFor='newNoteFolderId'>Folder</label>
+            <select id="newNoteFolderId" name="newNoteFolderId" value={newNoteFolderId} onChange={event => updateNote(event)} >
+                {folders.map(folder => (<option key={folder.id} value={folder.id}>{folder.name}</option>))}
             </select>
             <button>Create Note</button>
         </form>
-
-     );
-    }
+            )}
+        </NotefulContext.Consumer>
+    );
 }
- 
+
 export default AddNote;
