@@ -1,6 +1,7 @@
 import React from 'react';
 import NoteItem from './NoteItem';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const NotesList = (props) => {
 
@@ -20,6 +21,10 @@ const NotesList = (props) => {
 
 NotesList.defaultProps = {
   notes: []
+}
+
+NotesList.propTypes = {
+  notes : PropTypes.array.isRequired
 }
  
 export default NotesList;

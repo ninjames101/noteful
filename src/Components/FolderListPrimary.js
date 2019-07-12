@@ -1,6 +1,7 @@
 import React from 'react';
 import FolderItem from './FolderItem';
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const FolderListPrimary = (props) => {
   
@@ -19,6 +20,10 @@ const FolderListPrimary = (props) => {
 
 FolderListPrimary.defaultProps = {
   folders: []
+}
+
+FolderListPrimary.propTypes = {
+  folders : PropTypes.array.isRequired,
 }
  
 export default FolderListPrimary;

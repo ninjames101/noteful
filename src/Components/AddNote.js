@@ -10,9 +10,9 @@ const AddNote = (props) => {
             <label htmlFor='newNoteName'>New Note Name</label>
             <input type='text' id='newNoteName' value={newNoteName} name='newNoteName' onChange={event => updateNote(event)}  required/>
             <label htmlFor='newNoteContent'>Content</label>
-            <textarea id='newNoteContent' name='newNoteContent' value={newNoteContent}  onChange={event => updateNote(event)}  ></textarea>
+            <textarea id='newNoteContent' name='newNoteContent' value={newNoteContent}  onChange={event => updateNote(event)}  required></textarea>
             <label htmlFor='newNoteFolderId'>Folder</label>
-            <select id="newNoteFolderId" name="newNoteFolderId" value={newNoteFolderId} onChange={event => updateNote(event)} >
+            <select id="newNoteFolderId" name="newNoteFolderId" value={newNoteFolderId} onChange={event => updateNote(event)} required>
                 {folders.map(folder => (<option key={folder.id} value={folder.id}>{folder.name}</option>))}
             </select>
             <button>Create Note</button>

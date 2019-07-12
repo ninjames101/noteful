@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import DeleteNoteButton from './DeleteNoteButton';
+import PropTypes from 'prop-types';
 
 const NoteItem = (props) => {
 
@@ -10,6 +11,12 @@ const NoteItem = (props) => {
                 <DeleteNoteButton noteId={props.id} />
             </li>
      );
+}
+
+NoteItem.propTypes = {
+    id : PropTypes.string.isRequired,
+    name : PropTypes.string.isRequired,
+    modified : PropTypes.string
 }
  
 export default NoteItem;
