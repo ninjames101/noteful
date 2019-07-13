@@ -10,7 +10,7 @@ const FolderListPrimary = (props) => {
     ))
     return ( 
         <React.Fragment>
-          <ul>
+          <ul className="folderNav">
             {folder}
           </ul>
           <button><Link to="/addfolder">Add folder</Link></button>
