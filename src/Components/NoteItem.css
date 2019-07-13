@@ -1,0 +1,37 @@
+li.noteItem {
+    background-color: white;
+    height: 90px;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    padding: 10px;
+    position: relative;
+    max-width: 425px;
+}
+
+
+li.noteItem h2 {
+    margin: 0;
+    max-width: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+li.noteItem a {
+    text-decoration: none;
+}
+
+li.noteItem .noteDate {
+    position: absolute;
+    bottom: 10px;
+}
+
+li.noteItem .btnDelete {
+    position: absolute;
+    right: 31px;
+    top: 0px;
+    transform-origin: top right;
+    transform: rotate(-90deg);
+    height: 30px;
+    width: 88px;
+}
