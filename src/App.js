@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from './Components/Header/Header';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import FolderListPrimary from './Components/NoteListNav/FolderListPrimary';
 import NotesSidebar from './Components/NotePageNav/NotesSidebar';
 import NotesList from './Components/NoteListMain/NotesList';
@@ -183,7 +182,11 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header />
+        <header>
+            <h1>
+                <Link to="/">Noteful</Link>
+            </h1>
+        </header>
         <NotefulErrorPage>
             <NotefulContext.Provider
                   value={this.state}>
