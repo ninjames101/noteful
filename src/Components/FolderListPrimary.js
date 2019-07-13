@@ -2,6 +2,7 @@ import React from 'react';
 import FolderItem from './FolderItem';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
+import './FolderListPrimary.css'
 
 const FolderListPrimary = (props) => {
   
@@ -13,7 +14,9 @@ const FolderListPrimary = (props) => {
           <ul className="folderNav">
             {folder}
           </ul>
+          <div className="navBtnWrapper">
           <button><Link to="/addfolder">Add folder</Link></button>
+          </div>
         </React.Fragment>
      );
 }

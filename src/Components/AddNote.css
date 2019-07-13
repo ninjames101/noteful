@@ -1,0 +1,56 @@
+.addNoteForm {
+    width: 60%;
+    margin-left: 10%;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    border: .2rem solid rgba(0, 0, 0, 0.3);
+    border-radius: .3rem;
+    font-size: 1.2em;
+    margin-right: .2rem;    
+}
+
+input[type="text"]:hover,
+textarea:hover,
+select:hover {
+    cursor: pointer;
+    border: .2rem solid rgba(0, 162, 255, 0.849);
+}
+
+label {
+    font-size: 1.2em;
+    font-weight: 500;
+    margin: 1rem 0;
+}
+
+textarea {
+    display: block;
+    margin: .7rem 0;
+    height: 8rem;
+    width: 100%;
+    resize: vertical;
+    padding: .2rem;
+    border: .2rem solid rgba(0, 0, 0, 0.3);
+}
+
+.addNoteForm button {
+    margin-top: 1rem;
+    border: none;
+    font-size: 1.1rem;
+    background: rgba(0, 162, 255, 0.849);
+    color: #ffffff;
+    font-weight: 500;
+    padding: 1rem 1.5rem;
+    text-transform: uppercase;
+    border-radius: .2rem;
+    display: inline-block;
+    transition: all .5s ease-in-out;
+}
+
+.addNoteForm button:hover {
+    box-shadow: .1rem .1rem rgba(0, 0, 0, 0.315);
+    cursor: pointer;
+    transform: scale(1.05);
+}

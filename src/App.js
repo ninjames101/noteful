@@ -185,7 +185,6 @@ class App extends Component {
       <div className="App">
         <Header />
         <NotefulErrorPage>
-          <main>
             <NotefulContext.Provider
                   value={this.state}>
               <nav className="notefulNav">
@@ -197,6 +196,7 @@ class App extends Component {
                   <Route path="/addnote" render={() => <FolderListPrimary folders={this.state.folders} />} />
                 </Switch>
               </nav>
+              <main>
               <section className="notefulContent">
               {error}
               <Switch>
@@ -208,8 +208,8 @@ class App extends Component {
                   <Route component={Error404} />
               </Switch>
               </section>
-            </NotefulContext.Provider>
           </main>
+            </NotefulContext.Provider>
         </NotefulErrorPage>
       </div>
     );

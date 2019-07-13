@@ -15,7 +15,9 @@ const NotesList = (props) => {
           <ul>
             {notes}
           </ul>
+          <div className="mainBtnWrapper">
           <button className="btn btnAddNote"><Link to='/addnote'>Add Note</Link></button>
+          </div>
         </section>
      );
 }

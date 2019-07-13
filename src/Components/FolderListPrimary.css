@@ -1,5 +1,4 @@
-ul.folderNav {
-    list-style-type: none;
-    margin: 0px;
-    padding: 0px;
+.navBtnWrapper {
+    max-width: 180px;
+    margin: 0 0 0 auto;
 }

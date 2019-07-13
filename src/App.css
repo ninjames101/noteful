@@ -1,15 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Oswald:700&display=swap');
+
 * {
     box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
 }
 
-main {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    flex-wrap: nowrap;
+h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 4rem;
+    padding: 0;
+}
+
+.App {
+    display: grid;
+    grid-gap: 3rem;
+    grid-template-areas: 
+        'header header'
+        'left content'
 }
 
 button {
@@ -19,11 +26,45 @@ button {
 }
 
 .notefulNav {
-    flex-grow: 1;
+    padding: 10px;
+    grid-area: left;
+}
+
+.notefulNav button,
+button.btn.btnAddNote{
+    width: 100%;
+    margin-top: 1rem;
+    border: none;
+    font-size: 1.1rem;
+    background: rgba(0, 162, 255, 0.849);
+    color: #ffffff;
+    padding: .5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-radius: .2rem;
+    display: inline-block;
+    transition: all .5s ease-in-out;
+}
+
+.notefulNav button a,
+button.btn.btnAddNote a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.notefulNav button:hover,
+button.btn.btnAddNote:hover {
+    box-shadow: .1rem .1rem rgba(0, 0, 0, 0.315);
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+.notefulNav ul {
+    padding: 0;
 }
 
 .notefulContent {
-    width: 100%;
     padding-bottom: 25px;
-    flex-grow: 2;
+    margin: 0 auto 0 0;
+    grid-area: content;
 }

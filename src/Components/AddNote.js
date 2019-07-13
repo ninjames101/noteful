@@ -1,12 +1,13 @@
 import React from 'react';
-import { NotefulContext } from './NotefulContext'
+import { NotefulContext } from './NotefulContext';
+import './AddNote.css';
 
 const AddNote = (props) => {
 
     return ( 
         <NotefulContext.Consumer>
             {({createNote, newNoteName, updateNote, newNoteContent, newNoteFolderId, folders }) => (
-        <form onSubmit={e => createNote(e)}>
+        <form onSubmit={e => createNote(e)} className='addNoteForm'>
             <label htmlFor='newNoteName'>New Note Name</label>
             <input type='text' id='newNoteName' value={newNoteName} name='newNoteName' onChange={event => updateNote(event)}  required/>
             <label htmlFor='newNoteContent'>Content</label>
