@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import './NotesSidebar.css'
 
 const NotesSidebar = (props) => {
     return ( 
         <React.Fragment>
             <button onClick={props.goBack}>Go Back</button>
-            <h3>{props.folder}</h3>
+            <h3 className="activeNoteFolder">{props.folder}</h3>
         </React.Fragment>
      );
 }

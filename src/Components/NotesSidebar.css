@@ -1,0 +1,9 @@
+.activeNoteFolder {
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    text-transform: uppercase;
+    margin: 25px auto 0;
+    width: 50px;
+    font-size: xx-large;
+
+}
