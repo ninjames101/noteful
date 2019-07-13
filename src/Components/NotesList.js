@@ -2,6 +2,7 @@ import React from 'react';
 import NoteItem from './NoteItem';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import './NotesList.css';
 
 const NotesList = (props) => {
 
@@ -10,11 +11,11 @@ const NotesList = (props) => {
   ))
 
     return ( 
-        <section>
+        <section className="notesList">
           <ul>
             {notes}
           </ul>
-          <button><Link to='/addnote'>Add Note</Link></button>
+          <button className="btn btnAddNote"><Link to='/addnote'>Add Note</Link></button>
         </section>
      );
 }
