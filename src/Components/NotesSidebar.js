@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 const NotesSidebar = (props) => {
     return ( 
-        <nav>
+        <React.Fragment>
             <button onClick={props.goBack}>Go Back</button>
             <h3>{props.folder}</h3>
-        </nav>
+        </React.Fragment>
      );
 }
 

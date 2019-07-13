@@ -9,12 +9,12 @@ const FolderListPrimary = (props) => {
       <FolderItem key={folder.id} id={folder.id} name={folder.name} />
     ))
     return ( 
-        <nav>
+        <React.Fragment>
           <ul>
             {folder}
           </ul>
           <button><Link to="/addfolder">Add folder</Link></button>
-        </nav>
+        </React.Fragment>
      );
 }
 
