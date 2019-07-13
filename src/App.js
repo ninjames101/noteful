@@ -10,6 +10,7 @@ import AddFolder from './Components/AddFolder';
 import AddNote from './Components/AddNote';
 import { NotefulContext} from './Components/NotefulContext';
 import NotefulErrorPage from './Components/NotefulErrorPage';
+import Error404 from './Components/Error404';
 
 class App extends Component {
   constructor(props) {
@@ -36,9 +37,18 @@ class App extends Component {
         'content-type': 'application/json'
       },
     })
-    .then(response => response.json())
+    .then(response => {
+      if(response.ok) {
+        return response.json()
+      }
+      throw new Error('Network response was not ok.');
+    })
     .then(responseJson => this.fetchNotes())
-    .catch(error => console.log(error.message))
+    .catch(error => {
+      this.setState({
+        error: error.message
+      })
+    })
   }
 
   componentDidMount() {
@@ -48,20 +58,38 @@ class App extends Component {
 
   fetchFolders = () => {
     fetch('http://localhost:9090/folders')
-    .then(response => response.json())
+    .then(response => {
+      if(response.ok) {
+        return response.json()
+      }
+      throw new Error('Network response was not ok.');
+    })
     .then(responseJson => this.setState({
         folders: responseJson
     }) )
-    .catch(error => console.log(error.message))
+    .catch(error => {
+      this.setState({
+        error: error.message
+      })
+    })
   }
   
   fetchNotes = () => {
     fetch('http://localhost:9090/notes')
-    .then(response => response.json())
+    .then(response => {
+      if(response.ok) {
+        return response.json()
+      }
+      throw new Error('Network response was not ok.');
+    })
     .then(responseJson => this.setState({
         notes: responseJson
       }))
-    .catch(error => console.log(error.message))
+    .catch(error => {
+      this.setState({
+        error: error.message
+      })
+    })
   }
 
   createFolder = (event) => {
@@ -72,12 +100,21 @@ class App extends Component {
         headers: {
             'Content-Type': 'application/json',
         }
-    }).then(response => response.json())
+    }).then(response => {
+      if(response.ok) {
+        return response.json()
+      }
+      throw new Error('Network response was not ok.');
+    })
     .then(response => {
       this.fetchFolders()
       this.setState({newFolderName: ''})
     })
-    .catch(error => console.log(error.message))
+    .catch(error => {
+      this.setState({
+        error: error.message
+      })
+    })
   }
 
   updateFolder = (folderName) => {
@@ -96,25 +133,36 @@ class App extends Component {
   }
 
   createNote = (event) => {
+    const date = new Date();
     event.preventDefault()
     fetch('http://localhost:9090/notes/',{
         method: 'POST',
         body: JSON.stringify({
           name: this.state.newNoteName,
           content: this.state.newNoteContent,
-          folderId: this.state.newNoteFolderId
+          folderId: this.state.newNoteFolderId,
+          modified: date
         }),
         headers: {
             'Content-Type': 'application/json',
           }
-    }).then(response => response.json())
+    }).then(response => {
+      if(response.ok) {
+        return response.json()
+      }
+      throw new Error('Network response was not ok.');
+    })
     .then(response => {this.fetchNotes()
     this.setState({
       newNoteName: '',
       newNoteContent: '',
       newNoteFolderId: ''
     })})
-    .catch(error => console.log(error.message))
+    .catch(error => {
+      this.setState({
+        error: error.message
+      })
+    })
 }
 
   findNote = (noteId) => {
@@ -131,6 +179,8 @@ class App extends Component {
   }
 
   render() {
+    const error = this.state.error ? <div className='errorDisplay'>{this.state.error}</div> : '';
+
     return (
       <div className="App">
         <Header />
@@ -138,19 +188,26 @@ class App extends Component {
           <main>
             <NotefulContext.Provider
                   value={this.state}>
-              <Switch>
-                <Route exact path="/" render={() => <FolderListPrimary folders={this.state.folders} />} />
-                <Route path="/addfolder" render={() => <FolderListPrimary folders={this.state.folders} />} />
-                <Route path="/folder/:folderid" render={() => <FolderListPrimary folders={this.state.folders} />} />
-                <Route path="/note/:noteid" render={(routerProps) => <NotesSidebar folder={this.findNoteFolder(routerProps.match.params.noteid).name} goBack={() => routerProps.history.goBack()}   />} />
-              </Switch>
+              <nav className="notefulNav">
+                <Switch>
+                  <Route exact path="/" render={() => <FolderListPrimary folders={this.state.folders} />} />
+                  <Route path="/folder/:folderid" render={() => <FolderListPrimary folders={this.state.folders} />} />
+                  <Route path="/note/:noteid" render={(routerProps) => <NotesSidebar folder={this.findNoteFolder(routerProps.match.params.noteid).name} goBack={() => routerProps.history.goBack()}   />} />
+                  <Route path="/addfolder" render={() => <FolderListPrimary folders={this.state.folders} />} />
+                  <Route path="/addnote" render={() => <FolderListPrimary folders={this.state.folders} />} />
+                </Switch>
+              </nav>
+              <section className="notefulContent">
+              {error}
               <Switch>
                   <Route exact path="/" render={() => <NotesList notes={this.state.notes} />} />
                   <Route path="/addnote" render={() => <AddNote  /> } />
                   <Route path="/addfolder" render={() => <AddFolder /> } />
                   <Route path="/folder/:folderid" render={(routerProps) => <NotesList notes={this.findFolderNotes(routerProps.match.params.folderid)}  />} />
                   <Route path="/note/:noteid" render={(routerProps) => <SingleNote note={this.findNote(routerProps.match.params.noteid)}   />} />
+                  <Route component={Error404} />
               </Switch>
+              </section>
             </NotefulContext.Provider>
           </main>
         </NotefulErrorPage>
