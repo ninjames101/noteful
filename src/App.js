@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from './Components/Header';
+import Header from './Components/Header/Header';
 import { Route, Switch } from 'react-router-dom';
-import FolderListPrimary from './Components/FolderListPrimary';
-import NotesSidebar from './Components/NotesSidebar';
-import NotesList from './Components/NotesList';
-import SingleNote from './Components/SingleNote';
-import AddFolder from './Components/AddFolder';
-import AddNote from './Components/AddNote';
+import FolderListPrimary from './Components/NoteListNav/FolderListPrimary';
+import NotesSidebar from './Components/NotePageNav/NotesSidebar';
+import NotesList from './Components/NoteListMain/NotesList';
+import SingleNote from './Components/NotePageMain/SingleNote';
+import AddFolder from './Components/AddFolder/AddFolder';
+import AddNote from './Components/AddNote/AddNote';
 import { NotefulContext} from './Components/NotefulContext';
-import NotefulErrorPage from './Components/NotefulErrorPage';
-import Error404 from './Components/Error404';
+import NotefulErrorPage from './Components/ErrorPages/NotefulErrorPage';
+import Error404 from './Components/ErrorPages/Error404';
 
 class App extends Component {
   constructor(props) {

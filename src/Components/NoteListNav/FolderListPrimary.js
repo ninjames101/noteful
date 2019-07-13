@@ -1,5 +1,5 @@
 import React from 'react';
-import FolderItem from './FolderItem';
+import FolderItem from '../NoteListNavItem/FolderItem';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './FolderListPrimary.css'

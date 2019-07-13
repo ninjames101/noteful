@@ -1,5 +1,5 @@
 import React from 'react'
-import NoteItem from './NoteItem'
+import NoteItem from '../Note/NoteItem'
 import PropTypes from 'prop-types';
 import './SingleNote.css'
 

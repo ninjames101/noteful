@@ -1,5 +1,5 @@
 import React from 'react';
-import NoteItem from './NoteItem';
+import NoteItem from '../Note/NoteItem';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './NotesList.css';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import DeleteNoteButton from './DeleteNoteButton';
+import DeleteNoteButton from '../DeleteNoteButton/DeleteNoteButton';
 import PropTypes from 'prop-types';
 import './NoteItem.css'
 

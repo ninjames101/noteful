@@ -1,5 +1,5 @@
 import React from 'react';
-import { NotefulContext } from './NotefulContext'
+import { NotefulContext } from '../NotefulContext'
 import './AddFolder.css'
 
 const AddFolder = (props) => {
