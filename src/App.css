@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex-wrap: nowrap;
+}
+
+button {
+    border: 1px solid black;
+    padding: 5px 10px;
+    background-color: white;
+}
+
+.notefulNav {
+    flex-grow: 1;
+}
+
+.notefulContent {
+    width: 100%;
+    padding-bottom: 25px;
+    flex-grow: 2;
+}
