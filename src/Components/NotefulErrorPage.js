@@ -3,15 +3,25 @@ import React, { Component } from 'react';
 class NotefulErrorPage extends Component {
     constructor(props) {
         super(props);
-        this.state = { error: null }
+        this.state = { error: false }
     }
+
+    static getDerivedStateFromError(error) {
+        return {
+            error: true
+        }
+    }
+
     render() {
-        return (
-            <main className='errorDisplay'>
-                <h1>Oooops!!! Something went wrong...</h1>
-                <p>Damn gerbils have stopped running again! Someone has been dispatched to poke them with a sharp stick.</p>
-            </main>
-        );
+        if(this.state.error) {
+            return (
+                <main className='errorDisplay'>
+                    <h1>Oooops!!! Something went wrong...</h1>
+                    <p>Damn gerbils have stopped running again! Someone has been dispatched to poke them with a sharp stick.</p>
+                </main>
+            ); 
+        }
+        return this.props.children
     }
 }
 

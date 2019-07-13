@@ -8,7 +8,8 @@ import NotesList from './Components/NotesList';
 import SingleNote from './Components/SingleNote';
 import AddFolder from './Components/AddFolder';
 import AddNote from './Components/AddNote';
-import { NotefulContext} from './Components/NotefulContext'
+import { NotefulContext} from './Components/NotefulContext';
+import NotefulErrorPage from './Components/NotefulErrorPage';
 
 class App extends Component {
   constructor(props) {
@@ -133,24 +134,26 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <main>
-          <NotefulContext.Provider
-                value={this.state}>
-            <Switch>
-              <Route exact path="/" render={() => <FolderListPrimary folders={this.state.folders} />} />
-              <Route path="/addfolder" render={() => <FolderListPrimary folders={this.state.folders} />} />
-              <Route path="/folder/:folderid" render={() => <FolderListPrimary folders={this.state.folders} />} />
-              <Route path="/note/:noteid" render={(routerProps) => <NotesSidebar folder={this.findNoteFolder(routerProps.match.params.noteid).name} goBack={() => routerProps.history.goBack()}   />} />
-            </Switch>
-            <Switch>
-                <Route exact path="/" render={() => <NotesList notes={this.state.notes} />} />
-                <Route path="/addnote" render={() => <AddNote  /> } />
-                <Route path="/addfolder" render={() => <AddFolder /> } />
-                <Route path="/folder/:folderid" render={(routerProps) => <NotesList notes={this.findFolderNotes(routerProps.match.params.folderid)}  />} />
-                <Route path="/note/:noteid" render={(routerProps) => <SingleNote note={this.findNote(routerProps.match.params.noteid)}   />} />
-            </Switch>
-          </NotefulContext.Provider>
-        </main>
+        <NotefulErrorPage>
+          <main>
+            <NotefulContext.Provider
+                  value={this.state}>
+              <Switch>
+                <Route exact path="/" render={() => <FolderListPrimary folders={this.state.folders} />} />
+                <Route path="/addfolder" render={() => <FolderListPrimary folders={this.state.folders} />} />
+                <Route path="/folder/:folderid" render={() => <FolderListPrimary folders={this.state.folders} />} />
+                <Route path="/note/:noteid" render={(routerProps) => <NotesSidebar folder={this.findNoteFolder(routerProps.match.params.noteid).name} goBack={() => routerProps.history.goBack()}   />} />
+              </Switch>
+              <Switch>
+                  <Route exact path="/" render={() => <NotesList notes={this.state.notes} />} />
+                  <Route path="/addnote" render={() => <AddNote  /> } />
+                  <Route path="/addfolder" render={() => <AddFolder /> } />
+                  <Route path="/folder/:folderid" render={(routerProps) => <NotesList notes={this.findFolderNotes(routerProps.match.params.folderid)}  />} />
+                  <Route path="/note/:noteid" render={(routerProps) => <SingleNote note={this.findNote(routerProps.match.params.noteid)}   />} />
+              </Switch>
+            </NotefulContext.Provider>
+          </main>
+        </NotefulErrorPage>
       </div>
     );
   }
