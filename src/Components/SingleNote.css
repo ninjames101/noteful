@@ -1,0 +1,11 @@
+.indNote {
+    width: 100%;
+    max-width: 430px;
+    padding: 10px;
+}
+
+.indNote ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
