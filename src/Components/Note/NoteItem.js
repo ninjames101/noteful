@@ -7,7 +7,8 @@ import './NoteItem.css'
 const NoteItem = (props) => {
     
     return ( 
-                <li className="noteItem"><Link to={`/note/${props.id}`}><h2>{props.name}</h2></Link>
+            <li className="noteItem">
+                <h2><Link to={`/note/${props.id}`}>{props.name}</Link></h2>
                 <span className="noteDate">Date Modified on {new Date(props.modified).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric'  })}</span>
                 <DeleteNoteButton noteId={props.id} />
             </li>
