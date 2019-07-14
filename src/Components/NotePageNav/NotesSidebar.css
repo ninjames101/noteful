@@ -1,9 +1,37 @@
+.noteNavBtnWrapper {
+    max-width: 180px;
+    margin: 0 0 0 auto;
+}
+
+.noteNavBtnWrapper button {
+    margin: 10px auto 1rem;
+    background-color: #8dba69;
+    border: none;
+    font-size: 1.1rem;
+    width: 100%;
+    font-weight: 500;
+    color: #ffffff;
+    padding: .5rem;
+    text-transform: uppercase;
+    border-radius: .2rem;
+    transition: all .5s ease-in-out;
+}
+
+.noteNavBtnWrapper button:hover {
+    background-color: #61ac27;
+    border: none;
+    color: white;
+    box-shadow: .1rem .1rem rgba(0, 0, 0, 0.315);
+}
+
 .activeNoteFolder {
     writing-mode: vertical-lr;
     text-orientation: upright;
     text-transform: uppercase;
-    margin: 25px auto 0;
-    width: 50px;
+    margin: 0 0 0 auto;
+    width: 75px;
     font-size: xx-large;
-
+    color: #939393;
+    height: 50vh;
 }
+

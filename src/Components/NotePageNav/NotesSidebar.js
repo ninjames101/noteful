@@ -5,7 +5,9 @@ import './NotesSidebar.css'
 const NotesSidebar = (props) => {
     return ( 
         <React.Fragment>
-            <button onClick={props.goBack}>Go Back</button>
+            <div className="noteNavBtnWrapper">
+            <button className="noteNavBtn" onClick={props.goBack}>Go Back</button>
+            </div>
             <h3 className="activeNoteFolder">{props.folder}</h3>
         </React.Fragment>
      );
