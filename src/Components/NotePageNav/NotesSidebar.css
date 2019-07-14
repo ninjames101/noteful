@@ -14,7 +14,7 @@
     padding: .5rem;
     text-transform: uppercase;
     border-radius: .2rem;
-    transition: all .5s ease-in-out;
+    transition: all .4s ease-in-out;
 }
 
 .noteNavBtnWrapper button:hover {

@@ -1,11 +1,11 @@
 .indNote {
-    width: 100%;
-    padding: 10px;
+    max-width: 500px;
+    padding: 0px 10px 10px;
     height: 100%;
 }
 
 .indNote .noteContent {
-    max-width: 480px;
+    max-width: 500px;
 }
 
 .indNote ul {

@@ -19,12 +19,12 @@ li.noteItem h2 {
     color: #4d7e29;
 }
 
-li.noteItem a {
+li.noteItem h2 a {
     text-decoration: none;
     color: #4d7e29;
 }
 
-li.noteItem a:hover {
+li.noteItem h2 a:hover {
     color: #61ac27;
 }
 

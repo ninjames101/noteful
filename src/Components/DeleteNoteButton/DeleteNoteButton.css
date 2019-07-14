@@ -3,6 +3,7 @@
     padding: 5px;
     background-color: white;
     color: #cb132d;
+    transition: all .45s ease-in-out;
 }
 
 .btnDelete:hover {

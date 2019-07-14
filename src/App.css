@@ -4,77 +4,63 @@
     font-family: 'Lato', sans-serif;
 }
 
-h1 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 4rem;
-    padding: 0;
-}
-
-header {
-    width: 100%;
-    border-bottom: 1px solid black;
-    padding: 50px 0;
-    grid-area: header;
-}
-
-header h1 a {
-    text-decoration: none;
-}
-
 .App {
     display: grid;
-    grid-gap: 3rem;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 120px 1fr;
+    min-height: 100vh;
     grid-template-areas: 
         'header header'
         'left content'
 }
 
-button {
-    border: 1px solid black;
-    padding: 5px 10px;
-    background-color: white;
+header {
+    background-color: #8dba69;
+    grid-area: header;
+    color: #f1f1f1;
+    text-align: center;
 }
 
-.notefulNav {
-    padding: 10px;
-    grid-area: left;
-}
-
-.notefulNav button,
-button.btn.btnAddNote{
-    width: 100%;
-    margin-top: 1rem;
-    border: none;
-    font-size: 1.1rem;
-    background: rgba(0, 162, 255, 0.849);
-    color: #ffffff;
-    padding: .5rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    border-radius: .2rem;
-    display: inline-block;
-    transition: all .5s ease-in-out;
-}
-
-.notefulNav button a,
-button.btn.btnAddNote a {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-.notefulNav button:hover,
-button.btn.btnAddNote:hover {
-    box-shadow: .1rem .1rem rgba(0, 0, 0, 0.315);
-    cursor: pointer;
-    transform: scale(1.02);
-}
-
-.notefulNav ul {
+header h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
     padding: 0;
 }
 
+header h1 a {
+    color: #f1f1f1;
+    text-decoration: none;
+}
+
+.notefulNav {
+    height: calc(100vh - 120px);
+    overflow: auto;
+    grid-area: left;
+}
+
 .notefulContent {
-    padding-bottom: 25px;
-    margin: 0 auto 0 0;
+    height: calc(100vh - 130px);
+    overflow: auto;
     grid-area: content;
+    margin-top: 10px;
+}
+
+button {
+    border-radius: 7px;
+    padding: 5px 10px;
+    border: 1px solid #939393;
+    background-color: #f1f1f1;
+    color: black;
+    cursor: pointer;
+}
+
+button a {
+    color: #939393;
+    text-decoration: none;
+}
+
+button:hover {
+    border: 1px solid #939393;
+    background-color: #939393;
+    color: #f1f1f1;
 }

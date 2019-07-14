@@ -1,17 +1,38 @@
 .notesList ul {
     list-style-type: none;
     margin: 0px;
-    padding: 10px;
-    max-width: 430px;
+    padding: 0px 10px;
+    max-width: 500px;
 }
+
+.notesList .mainBtnWrapper {
+    max-width: 500px;
+    padding: 10px;
+    margin: 0 auto 0 0;
+} 
 
 .notesList .btnAddNote {
-    margin: 10px;
-    padding: 10px 15px;
-    max-width: 150px;
+    margin: 0 0 10px;
+    width: 100%;
+    background-color: #8dba69;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #ffffff;
+    padding: .5rem;
+    text-transform: uppercase;
+    border-radius: .2rem;
+    transition: all .4s ease-in-out;
 }
 
-.mainBtnWrapper {
-    max-width: 180px;
-    margin: 0 auto 0 0;
+
+.notesList .btnAddNote:hover {
+    background-color: #61ac27;
+    border: none;
+    color: white;
+    box-shadow: .1rem .1rem rgba(0, 0, 0, 0.315);
+}
+
+.notesList .btnAddNote a, .notesList .btnAddNote a:hover {
+    color: white;
 }
