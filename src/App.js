@@ -27,7 +27,6 @@ class App extends Component {
       newNoteFolderId: '',
       updateNote: (event) => this.updateNote(event),
       createNote: (event) => this.createNote(event),
-      butts : 'meow'
     }
   }
   
