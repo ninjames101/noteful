@@ -10,6 +10,7 @@ import AddNote from './Components/AddNote/AddNote';
 import { NotefulContext} from './Components/NotefulContext';
 import NotefulErrorPage from './Components/ErrorPages/NotefulErrorPage';
 import Error404 from './Components/ErrorPages/Error404';
+import Mapping from './Components/Butts/Butts'
 
 class App extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class App extends Component {
       newNoteFolderId: '',
       updateNote: (event) => this.updateNote(event),
       createNote: (event) => this.createNote(event),
+      butts : 'meow'
     }
   }
   
@@ -202,11 +204,11 @@ class App extends Component {
             <NotefulContext.Provider value={this.state}>
               <nav className="notefulNav">
                 <Switch>
-                  <Route exact path="/" render={() => <FolderListPrimary folders={this.state.folders} />} />
-                  <Route path="/folder/:folderid" render={() => <FolderListPrimary folders={this.state.folders} />} />
-                  <Route path="/note/:noteid" render={(routerProps) => <NotesSidebar folder={this.findNoteFolder(routerProps.match.params.noteid).name} goBack={() => routerProps.history.goBack()}   />} />
-                  <Route path="/addfolder" render={() => <FolderListPrimary folders={this.state.folders} />} />
-                  <Route path="/addnote" render={() => <FolderListPrimary folders={this.state.folders} />} />
+                  <Route exact path="/" component={FolderListPrimary} />
+                  <Route path="/folder/:folderid" component={FolderListPrimary} />
+                  <Route path="/note/:noteid" component={NotesSidebar} />
+                  <Route path="/addfolder" component={FolderListPrimary}/>
+                  <Route path="/addnote" component={FolderListPrimary} />
                 </Switch>
               </nav>
               <main className="notefulContent">

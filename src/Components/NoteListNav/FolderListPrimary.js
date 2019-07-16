@@ -1,32 +1,27 @@
-import React from 'react';
-import FolderItem from '../NoteListNavItem/FolderItem';
-import {Link} from 'react-router-dom';
-import PropTypes from 'prop-types';
+import React from 'react'
+import { NavLink, Link } from 'react-router-dom'
+import { NotefulContext } from '../NotefulContext'
 import './FolderListPrimary.css'
+import './FolderItem.css'
 
-const FolderListPrimary = (props) => {
-  
-    const folder = props.folders.map((folder) => (
-      <FolderItem key={folder.id} id={folder.id} name={folder.name} />
-    ))
-    return ( 
+const FolderListPrimary = (props) =>
+
+  (
+    <NotefulContext.Consumer>
+      {({ folders }) => (
         <React.Fragment>
-          <ul className="folderNavList">
-            {folder}
+          <ul className='folderNavList'>
+            {folders.map(folder => <li key={folder.id} className='folderItem' id={folder.id}>
+              <NavLink to={`/folder/${folder.id}`}>{folder.name}</NavLink>
+            </li>)}
           </ul>
-          <div className="navBtnWrapper">
-          <button><Link to="/addfolder">Add folder</Link></button>
+          <div className='navBtnWrapper'>
+            <button><Link to='/addfolder'>Add folder</Link></button>
           </div>
         </React.Fragment>
-     );
-}
+      )}
+    </NotefulContext.Consumer>
 
-FolderListPrimary.defaultProps = {
-  folders: []
-}
+  )
 
-FolderListPrimary.propTypes = {
-  folders : PropTypes.array.isRequired,
-}
- 
-export default FolderListPrimary;
+export default FolderListPrimary

@@ -1,25 +1,26 @@
 import React from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 import './NotesSidebar.css'
+import { NotefulContext } from '../NotefulContext'
 
 const NotesSidebar = (props) => {
-    return ( 
-        <React.Fragment>
-            <div className="noteNavBtnWrapper">
-            <button className="noteNavBtn" onClick={props.goBack}>Go Back</button>
-            </div>
-            <h3 className="activeNoteFolder">{props.folder}</h3>
-        </React.Fragment>
-     );
+  console.log(props)
+  return (
+    <NotefulContext.Consumer>
+      {({ folders }) => (
+        <div>
+          <div className='noteNavBtnWrapper'>
+            <button className='noteNavBtn' onClick={props.history.goBack}>Go Back</button>
+          </div>
+          <h3 className='activeNoteFolder'>{folders.name}</h3>
+        </div>
+      )}
+    </NotefulContext.Consumer>
+  )
 }
-
-NotesSidebar.defaultProps = {
-    goBack : () => {}
-}
-
 NotesSidebar.propTypes = {
-    goBack : PropTypes.func.isRequired,
-    folder : PropTypes.string.isRequired
+  goBack: PropTypes.func.isRequired,
+  folder: PropTypes.string.isRequired
 }
- 
-export default NotesSidebar;
+
+export default NotesSidebar
