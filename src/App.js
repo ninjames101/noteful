@@ -10,7 +10,7 @@ import AddNote from './Components/AddNote/AddNote';
 import { NotefulContext} from './Components/NotefulContext';
 import NotefulErrorPage from './Components/ErrorPages/NotefulErrorPage';
 import Error404 from './Components/ErrorPages/Error404';
-import Mapping from './Components/Butts/Butts'
+
 
 class App extends Component {
   constructor(props) {
